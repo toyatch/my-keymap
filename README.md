@@ -5,10 +5,10 @@ ESC     1!    2@    3#    4$    5%      6^    7&    8*    9(    0)    -_    =+  
 `~      F1    F2    F3    F4    F5      F6    F7    F8    F9    F10   F11   F12   Del
 ------  ----- ----- ----- ----- -----   ----- ----- ----- ----- ----- ----- ----- -----
 TAB     Q     W     E     R     T       Y     U     I     O     P     [{    ]}    \|
-Layout              End*        x       *WinV PgUp  Up    PgDn  PrtSc ScrLk Pause 
+*S-TAB  *LClk *Copy End*  *ESC  x       *WinV PgUp  Up    PgDn  PrtSc ScrLk Pause 
 ------  ----- ----- ----- ----- -----   ----- ----- ----- ----- ----- ----- ----- -----
 CTRL    A     S     D     F     G       H     J     K     L     ;:    '"      ENTER
-        *Home       *Del        x       *BS　 Lelf  Down  Right Ins   *Enter
+        *Home *RClk *Del  Mute  x       *BS　 Lelf  Down  Right Ins   *Enter
 ------- ----- ----- ----- ----- -----   ----- ----- ----- ----- ----- ------  ---------
 SHIFT   Z     X     C     V     B       N     M     ,<    .>    /?     SHIFT
         App                     x             x     x     x     x  
@@ -44,7 +44,26 @@ Mistel md600v3
        - Fn+RSpace > LAlt+Fn+ESC > Pn
    - Alt-TAB
        - Ralt > Alt+Tab > Pn
+   - LCtrl+C
+       - Fn+W > LCtrl+C > Pn      
    - Win+V
        - Fn+Y > Win+V  > Pn
 ## Fnキー移動
    - LShift + Fn > Fn > LWin : Fn
+
+## AHK
+```
+; Fn + Q
+Media_Prev::
+  Send {LButton Down}
+  KeyWait, Media_Prev
+  Send {LButton Up}
+return
+
+; Fn + S
+Volume_Down::
+  Send {RButton Down}
+  KeyWait, Volume_Down
+  Send {RButton Up}
+return
+```
