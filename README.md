@@ -50,7 +50,10 @@ Mistel md600v3
    - LShift + Fn > Fn > LWin : Fn
 
 ## AHK
+mouse-click.ahk
 ```
+#NoTrayIcon
+
 ; Fn + Q
 Media_Prev::
   Send {LButton Down}
@@ -65,3 +68,5 @@ Volume_Down::
   Send {RButton Up}
 return
 ```
+Win＋R shell:startup でスタートアップに.ahkをコピー
+
