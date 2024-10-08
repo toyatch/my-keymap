@@ -68,5 +68,5 @@ Volume_Down::
   Send {RButton Up}
 return
 ```
-Win＋R shell:startup でスタートアップに.ahkをコピー
+Win＋R shell:startup でスタートアップに.ahkのショートカットを作成
 
