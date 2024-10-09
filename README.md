@@ -5,16 +5,17 @@ ESC     1!    2@    3#    4$    5%      6^    7&    8*    9(    0)    -_    =+  
 `~      F1    F2    F3    F4    F5      F6    F7    F8    F9    F10   F11   F12   Del
 ------  ----- ----- ----- ----- -----   ----- ----- ----- ----- ----- ----- ----- -----
 TAB     Q     W     E     R     T       Y     U     I     O     P     [{    ]}    \|
-*S-TAB  *LClk *Copy End*        x       *WinV PgUp  Up    PgDn  PrtSc ScrLk Pause 
+*A-TAB                          x       *WinV PgUp  Up    PgDn  PrtSc ScrLk Pause 
 ------  ----- ----- ----- ----- -----   ----- ----- ----- ----- ----- ----- ----- -----
-CTRL    A     S     D     F     G       H     J     K     L     ;:    '"      ENTER
-        *Home *RClk *Del  Mute  x       *BS　 Lelf  Down  Right Ins   *Enter
+*CTRL   A     S     D     F     G       H     J     K     L     ;:     '"     ENTER
+             *Shift VUp   VMute x       Home  Lelf  Down  Right Ins    Del
+                    RClk  LClk
 ------- ----- ----- ----- ----- -----   ----- ----- ----- ----- ----- ------  ---------
 SHIFT   Z     X     C     V     B       N     M     ,<    .>    /?     SHIFT
-        App                     x             x     x     x     x  
+        App                     x       End   LD    L1    L2    L3  
 ------  ----- ----- ----- ----- -----   ----- ----- ----- ----- -----  ----------------
 CTRL    WIN   ALT   *Fn                 SPACE          ALT       PN     *App      CTRL
-                                       *JP/EN
+                                        *JP/EN
 ------  ----- ----- -----------------   -------------- --------- ----- --------- ------
 ```
 
@@ -25,48 +26,48 @@ Mistel md600v3
 両方のALTを長押し: ALL RESET
 
 ## キーマップ設定
+   - Alt-Tab
+       - Fn+Tab > RAlt+Tab > Pn
+   - Paste(Win+V)
+       - Fn+Y > Win+V  > Pn
    - LCtrl
        - CapsLock    > LCtrl > Pn
        - Fn+CapsLock > LCtrl > Pn
-   - Shit-Tab
-       - Fn+Tab > Shint+Tab> Pn
-   - Home
-       - Fn+A > Fn+H   > Pn
-   - End
-       - Fn+E > Fn+N   > Pn
-   - BS
-       - Fn+H > BS     > Pn
-   - Del
-       - Fn+D > Fn+'   > Pn
-   - Enter
-       - Fn+' > Enter  > Pn
+   - RShift
+       - Fn+S > RShift > Pn
    - JP/EN
        - Fn+RSpace > LAlt+Fn+ESC > Pn
-   - Copy(LCtrl+C)
-       - Fn+W > LCtrl+C > Pn      
-   - Paste(Win+V)
-       - Fn+Y > Win+V  > Pn
 ## Fnキー移動
-   - LShift + Fn > Fn > LWin : Fn
+   - LShift + Fn > Fn > LSpace : Fn
 
 ## AHK
 mouse-click.ahk
 ```
 #NoTrayIcon
 
-; Fn + Q
-Media_Prev::
+; Fn + F
+Volume_Mute::
   Send {LButton Down}
-  KeyWait, Media_Prev
+  KeyWait, Volume_Mute
   Send {LButton Up}
 return
 
-; Fn + S
-Volume_Down::
+; Fn + D
+Volume_Up::
   Send {RButton Down}
-  KeyWait, Volume_Down
+  KeyWait, Volume_Up
   Send {RButton Up}
 return
 ```
 Win＋R shell:startup でスタートアップに.ahkのショートカットを作成
+
+# Nore
+- ScrLk: 現代においてはほぼ使われない
+- Pause: Win + Pauseでシステム/バージョンの画面が出る
+- Cal: 電卓起動ならWin+R calcで代用できる
+- Ins: ターミナルなどのショートカットで使うことがある。Shift+Insで貼り付けなど。
+- App: 右クリックと同じ
+
+
+
 
