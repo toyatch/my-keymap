@@ -13,8 +13,7 @@ TAB     Q     W     E     R     T       Y     U     I     O     P     [{    ]}  
 SHIFT   Z     X     C     V     B       N     M     ,<    .>    /?     SHIFT
         App                     x       End   LD    L1    L2    L3  
 ------  ----- ----- ----- ----- -----   ----- ----- ----- ----- -----  ----------------
-CTRL    WIN   ALT   SPACE               SPACE          ALT       PN    Fn        CTRL
-                    *JP/EN              
+CTRL    WIN   ALT   SPACE               SPACE          *JP/EN    PN    Fn        CTRL
 ------  ----- ----- -----------------   -------------- --------- ----- --------- ------
 ```
 
@@ -28,9 +27,8 @@ Mistel md600v3
    - CapsLockをCtrlに
        - CapsLock    > LCtrl
        - Fn+CapsLock > LCtrl
-   - Fn+Spaceを半角/全角に
-       - Fn+RSpace > LAlt+Fn+ESC
-       - Fn+LSpace > LAlt+Fn+ESC
+   - 右ALTを半角/全角に
+       - Fn+RAlt > LAlt+Fn+ESC
    - Del/Ins入れ替え
        - Fn+; > Fn+'
        - Fn+' > Fn+;
