@@ -17,42 +17,42 @@ stepD := baseStep
 stepL := baseStep
 stepR := baseStep
 
-; 右CtrlはOSに渡さない（通常のCtrl動作を封じる）
-$*RControl::return
+; ScrLkはOSに渡さない（ScrollLockの通常動作を封じる）
+$*ScrollLock::return
 
-$*RControl up::
+$*ScrollLock up::
     Gosub, ResetU
     Gosub, ResetD
     Gosub, ResetL
     Gosub, ResetR
 return
 
-
 ; ---- 方向キー：押下/リピートのたびに状態合成で1回動く ----
-RControl & e::Gosub, MoveByState
-RControl & s::Gosub, MoveByState
-RControl & d::Gosub, MoveByState
-RControl & f::Gosub, MoveByState
+; Up=7 / Left=Y / Down=U / Right=I
+ScrollLock & 7::Gosub, MoveByState
+ScrollLock & y::Gosub, MoveByState
+ScrollLock & u::Gosub, MoveByState
+ScrollLock & i::Gosub, MoveByState
 
 ; ---- 方向キーUP：離した方向だけ初速へ ----
-RControl & e up::Gosub, ResetU
-RControl & d up::Gosub, ResetD
-RControl & s up::Gosub, ResetL
-RControl & f up::Gosub, ResetR
+ScrollLock & 7 up::Gosub, ResetU
+ScrollLock & u up::Gosub, ResetD
+ScrollLock & y up::Gosub, ResetL
+ScrollLock & i up::Gosub, ResetR
 
 ; ---- スクロール ----
-RControl & =::MouseClick, WheelUp,,, %wheelSpeed%
-RControl & -::MouseClick, WheelDown,,, %wheelSpeed%
+ScrollLock & 6::MouseClick, WheelUp,,, %wheelSpeed%
+ScrollLock & 8::MouseClick, WheelDown,,, %wheelSpeed%
 
 ; ---- 左クリック（Space / ドラッグ）----
-RControl & Space::
+ScrollLock & Space::
     MouseClick, left,,, 1, 0, D
     KeyWait, Space
     MouseClick, left,,, 1, 0, U
 return
 
 ; ---- 右クリック（ドラッグ）----
-RControl & t::
+ScrollLock & t::
     MouseClick, right,,, 1, 0, D
     KeyWait, t
     MouseClick, right,,, 1, 0, U
@@ -63,10 +63,11 @@ return
 ; =========================
 
 MoveByState:
-    l := GetKeyState("s","P")  ; 左
-    r := GetKeyState("f","P")  ; 右
-    u := GetKeyState("e","P")  ; 上
-    d := GetKeyState("d","P")  ; 下
+    ; Up=7 / Left=Y / Down=U / Right=I
+    u := GetKeyState("7","P")  ; 上
+    l := GetKeyState("y","P")  ; 左
+    d := GetKeyState("u","P")  ; 下
+    r := GetKeyState("i","P")  ; 右
 
     if (!l && !r && !u && !d)
         return
